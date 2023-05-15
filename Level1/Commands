@@ -23,6 +23,7 @@ $ more file.txt			#> Prints by page after page
 $ less file.txt			#> Prints by page after page with scroll up or down
 $ ls -lhaR			#> Long List, human readable, hidden files, and Recursive
 $ ls -Str			#> List by size, by time modification, and reversely
+$ /ls				#> List without alias => no color
 $ stat file_or_directory	#> List the details
 $ cp file1 file2		#> copy the file1 to another new file2
 $ rm file1			#> remove file1
