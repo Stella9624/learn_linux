@@ -1,11 +1,11 @@
 	PACKAGE MANAGEMENT WITH APT OR DNF: same command except upgrade
-$ apt upgrade			#> update the software
-$ apt dist-upgrade  		#> update the distribution
-$ apt full-upgrade		#> update everything: the soft and the dist.
-$ apt search package1		#> search for this package
-$ apt list package1 		#> lists if the package is in the database
-$ apt remove package1		#> remove package with unused dependencies by others
-$ apt autoclean && sudo apt autoremove 	#> remove all unused packages at once 
+# apt upgrade			#> update the software
+# apt dist-upgrade  		#> update the distribution
+# apt full-upgrade		#> update everything: the soft and the dist.
+# apt search package1		#> search for this package
+# apt list package1 		#> lists if the package is in the database
+# apt remove package1		#> remove package with unused dependencies by others
+# apt autoclean && sudo apt autoremove 	#> remove all unused packages at once 
 
 	ARCHIVES AND INSTALL FROM SOURCE
 $ apt install make gcc gzip	#> install the required softwares
@@ -38,12 +38,15 @@ $ ln target_file new_link
 - Symbolic links: points to a path, can be on the different hard disks, link breaks after deleting the original file: (1) ->
 $ ln -s target_file new_link
 
-	FILES
-$ find /directory -name thingtosearch	#> search the name
-$ find /directory -perm +rwx		#> search things with permission rwx
-$ find /directory -size +2M		#> search with size bigger than 2MB
+	FINDING FILES OR SOMETHING
+$ find /directory -name thingtosearch*	#> search the name
+$ find /directory -perm /u=x		#> search things with permission x for 'u' or 'g' or 'o'
+$ find /directory -size +2M		#> search with size bigger than 2MB (-2M for <)
 $ find /directory -group groupName	#> search things owned by a group
 $ find /directory -user userName	#> search things owned by a user
-
+# apt install mlocate
+# updatedb				#> locate uses the hard drive so need update before use
+$ locate something			#> locates something
+$ type command				#> find the type of command like ls
 
 
