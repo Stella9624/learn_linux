@@ -17,7 +17,11 @@ $ cd ~				#> Go to home directory or $cd
 .				#> the current directory (ex: cd .)
 ..				#> the parrent directory (ex: ls ..)
 $ mkdir Mydirectory		#> Create a directory
-$ rmdir Mydirectory		#> Delete the directory
+$ rmdir Mydirectory		#> Delete an empty directory
+$ rm -r Mydirectory		#> remove directory
+$ rm file1			#> remove file1
+$ mv file1 file2		#> Rename the file1 to file2
+$ cp file1 file2		#> copy the file1 to another new file2
 $ touch file.txt		#> Create empty file
 $ more file.txt			#> Prints by page after page
 $ less file.txt			#> Prints by page after page with scroll up or down
@@ -28,9 +32,6 @@ $ ls -d /etc/????		#> List all in /etc with 4 caracters
 $ ls –d /etc/[abcd]*		#> List qll in /etc beginning with letters a, b, c or d
 $ /ls				#> List without alias => no color
 $ stat file_or_directory	#> List the details
-$ cp file1 file2		#> copy the file1 to another new file2
-$ rm file1			#> remove file1
-$ mv file1 file2		#> Rename the file1 to file2
 
 	LINKS
 - Hard links: only in one size, on the same hard drive or partition:
@@ -48,5 +49,5 @@ $ find /directory -user userName	#> search things owned by a user
 # updatedb				#> locate uses the hard drive so need update before use
 $ locate something			#> locates something
 $ type command				#> find the type of command like ls
-
+(chapter 8)
 
