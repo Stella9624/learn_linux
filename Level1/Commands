@@ -27,10 +27,12 @@ $ more file.txt			#> Prints by page after page
 $ less file.txt			#> Prints by page after page with scroll up or down
 $ ls -lhaR			#> Long List, human readable, hidden files, and Recursive
 $ ls -Str			#> List by size, by time modification, and reversely
-$ ls -d Fil*			#> List all starting with "Fil"
-$ ls -d /etc/????		#> List all in /etc with 4 caracters
-$ ls –d /etc/[abcd]*		#> List qll in /etc beginning with letters a, b, c or d
+$ ls Fil*			#> List all starting with "Fil"
+$ ls /etc/????			#> List all in /etc with 4 caracters
+$ ls /etc/[abcd]*		#> List all beginning with letters a, b, c or d
+$ ls -d /etc/x*			#> List only the directory not its content    
 $ /ls				#> List without alias => no color
+$ ls /home /etc /otherDir	#> List numerous directories at the same time
 $ stat file_or_directory	#> List the details
 
 	LINKS
@@ -39,7 +41,7 @@ $ ln target_file new_link
 - Symbolic links: points to a path, can be on the different hard disks, link breaks after deleting the original file: (1) ->
 $ ln -s target_file new_link
 
-	FINDING FILES OR SOMETHING
+	FINDING FILES OR SOMETHING WITH FIND OR LOCATE
 $ find /directory -name thingtosearch*	#> search the name
 $ find /directory -perm /u=x		#> search things with permission x for 'u' or 'g' or 'o'
 $ find /directory -size +2M		#> search with size bigger than 2MB (-2M for <)
@@ -49,5 +51,13 @@ $ find /directory -user userName	#> search things owned by a user
 # updatedb				#> locate uses the hard drive so need update before use
 $ locate something			#> locates something
 $ type command				#> find the type of command like ls
+	FINDING FILES OR SOMETHING WITH ECHO
+$ echo /etc/t*				#> display all starting with letter t
+$ echo /etc/t??????? 			#> display all with 7 characters after the t
+$ echo /etc/*.???			#> all with 3-letter extension
+$ echo /etc/[g-u]*  			#> (or [gu]*) all starting with g or u (with alphabetical order: g before u)
+$ echo /etc/*[g-u]*  			#> (or *[gu]*) all containing g or u 
+$ echo /etc/*[0-9]*  			#> all containing at least one number
+$ echo /etc/[!a-t]*			#> everything not begin with a or t.
 (chapter 8)
 
