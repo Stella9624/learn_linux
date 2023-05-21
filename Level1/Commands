@@ -20,8 +20,12 @@ $ mkdir Mydirectory		#> Create a directory
 $ rmdir Mydirectory		#> Delete an empty directory
 $ rm -r Mydirectory		#> remove directory
 $ rm file1			#> remove file1
-$ mv file1 file2		#> Rename the file1 to file2
+$ mv file1 file2		#> Rename the file1 to file2  // same option as cp
 $ cp file1 file2		#> copy the file1 to another new file2
+$ cp -i file1 file2 		#> ask confirmation before overwhite copy
+$ cp -n file1 file2 		#> no overwhite copy
+$ cp -r direct1 direct 		#> copy directories recursively
+$ cp -p file1 file2		#> copy even the time modification 
 $ touch file.txt		#> Create empty file
 $ more file.txt			#> Prints by page after page
 $ less file.txt			#> Prints by page after page with scroll up or down
@@ -55,9 +59,10 @@ $ type command				#> find the type of command like ls
 $ echo /etc/t*				#> display all starting with letter t
 $ echo /etc/t??????? 			#> display all with 7 characters after the t
 $ echo /etc/*.???			#> all with 3-letter extension
-$ echo /etc/[g-u]*  			#> (or [gu]*) all starting with g or u (with alphabetical order: g before u)
-$ echo /etc/*[g-u]*  			#> (or *[gu]*) all containing g or u 
-$ echo /etc/*[0-9]*  			#> all containing at least one number
-$ echo /etc/[!a-t]*			#> everything not begin with a or t.
-(chapter 8)
-
+$ echo D*n*s  				#> Begin with D, contains n, and ends with s
+$ echo /etc/[gu]*  			#> all starting with g or u (with alphabetical order: g before u)
+$ echo /etc/[g-u]*  			#> all between and included g and u 
+$ echo /etc/*[gu]*  			#> all containing g or u 
+$ echo /etc/*[0-9]*  			#> all containing number 0 to 9
+$ echo /etc/[!a-t]*			#> everything not between nor included a or t.
+	SEARCHING WITH GREP
