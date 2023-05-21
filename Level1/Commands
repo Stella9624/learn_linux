@@ -11,6 +11,9 @@
 $ apt install make gcc gzip	#> install the required softwares
 
 
+$ man -k command1		#> (or $apropos command1) prompts all commands concerning it
+
+
 	LINUX FILE SYSTEM
 $ pwd				#> print working directory
 $ cd ~				#> Go to home directory or $cd
