@@ -68,4 +68,11 @@ $ echo /etc/[g-u]*  			#> all between and included g and u
 $ echo /etc/*[gu]*  			#> all containing g or u 
 $ echo /etc/*[0-9]*  			#> all containing number 0 to 9
 $ echo /etc/[!a-t]*			#> everything not between nor included a or t.
-	SEARCHING WITH GREP
+	SEARCHING WITH GREP (GLOBALLY SEARCH FOR REG EXPRESSION & PRINT)
+$ grep thingSearch /dir/file		#> search the word "thingSearch" inside /dir/file
+$ cat /dir/file | grep thingSearch	#> same as above
+$ grep -r thingSearch /dir/		#> search recursively the word "thingSearch" inside directory's files
+$ cat /dir/file | grep -E 'girl|boy'	#> search words girl or boy
+$ cat /dir/file | grep -E '^1'		#> (or grep -E '^[1]') #> search words starting with 1
+$ cat /dir/file | grep -E '^1[0-2]'	#> search words starting with 1 and followed by numbers between/included 0 or 2
+
