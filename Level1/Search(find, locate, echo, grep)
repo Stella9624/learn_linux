@@ -26,4 +26,14 @@ $ cat /dir/file | grep thingSearch	    #> same as above
 $ grep -r thingSearch /dir/		    #> search recursively the word "thingSearch" inside directory's files
 $ cat /dir/file | grep -E 'girl|boy'	    #> search words girl or boy
 $ cat /dir/file | grep -E '^1'		    #> (or grep -E '^[1]') #> search words starting with 1
+$ cat /dir/file | grep -E '1$'		    #> search words ending with 1
+$ cat /dir/file | grep -E '^1|^0'	    #> (or grep -E '^[10]') #>search words starting with 1 or 0
 $ cat /dir/file | grep -E '^1[0-2]'	    #> search words starting with 1 and followed by numbers between/included 0 or 2
+$ cat /dir/file | grep "cat's meal"	    #> search the string "cat's meal"
+$ cat /dir/file | grep -E "b[iae]g"	    #> search the string containing b then [i or a or e] then g
+$ cat /dir/file | grep -E "b[a-i]g"	    #> search the string containing b then [between or egal to a and i] then g
+$ cat /dir/file | grep -E "b[a-i|A-I]g"	    #> (or grep -E "b[a-i,A-I]g) #> search the string containing b then [between or egal to a or A and i or I] then g
+$ cat /dir/file | grep -E "b[a-i]g \/nut"   #> containing b then [between or egal to a and i] then g, then " /nut" (put \ before /)
+$ cat /dir/file | grep -E "b.g"   	    #> containing b then anything (one caracter, number, exlamation, etc) then g
+$ cat /dir/file | grep -E "b.*g"   	    #> containing b then anything (zero or more caracters, numbers, exlamations, etc) then g
+$ cat /dir/file | grep -E "^b.*g$"   	    #> starts with b, then anything, then and ends with g
