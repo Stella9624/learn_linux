@@ -1,0 +1,21 @@
+	PACKAGE MANAGEMENT WITH APT OR DNF: same command except upgrade
+# apt upgrade			#> update the software
+# apt dist-upgrade  		#> update the distribution
+# apt full-upgrade		#> update everything: the soft and the dist.
+# apt search package1		#> search for this package
+# apt list package1 		#> lists if the package is in the database
+# apt remove package1		#> remove package with unused dependencies by others
+# apt autoclean && sudo apt autoremove 	#> remove all unused packages at once 
+
+	ARCHIVES AND INSTALL FROM SOURCE
+$ apt install make gcc gzip	#> install the required softwares
+
+
+$ man -k command1		#> (or $apropos command1) prompts all commands concerning it
+
+
+	LINKS
+- Hard links: only in one size, on the same hard drive or partition:
+$ ln target_file new_link
+- Symbolic links: points to a path, can be on the different hard disks, link breaks after deleting the original file: (1) ->
+$ ln -s target_file new_link
