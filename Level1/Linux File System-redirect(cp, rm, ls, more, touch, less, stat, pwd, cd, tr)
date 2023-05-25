@@ -24,5 +24,15 @@ $ ls /etc/[abcd]*		      #> List all beginning with letters a, b, c or d
 $ ls -d /etc/x*			      #> List only the directory not its content    
 $ /ls				      #> List without alias => no color
 $ ls /home /etc /otherDir	      #> List numerous directories at the same time
+$ ls /etc | nl                        #> List with number of lines
 $ stat file_or_directory	      #> List the details
+
+        REDIRECT
+$ echo "Line 1" > example.txt         #> Redirect the output to example.txt           
+$ echo "Line 2" >> example.txt        #> Add the output to example.txt
+$ ls /fake 2> error.txt               #> Redirect all error messages to error.txt
+$ ls /fake /etc/ppp &> all.txt        #> Redirect all output to all.txt
+$ tr 'a-z' 'A-Z'                      #> Translate from the keybord into capital letters 
+$ tr 'a' 'A' < example.txt            #> Translate from the file all 'a' into capital 'A'
+$ tr 'a' 'A' < file.txt > newfile.txt   #> Redirect into another file
 
