@@ -1,0 +1,16 @@
+        REDIRECT
+$ echo "Line 1" > example.txt         #> Redirect the output to example.txt           
+$ echo "Line 2" >> example.txt        #> Add the output to example.txt
+$ ls /fake 2> error.txt               #> Redirect all error messages to error.txt
+$ ls /fake /etc/ppp &> all.txt        #> Redirect all output to all.txt
+$ tr 'a-z' 'A-Z'                      #> Translate from the keybord into capital letters 
+$ tr 'a' 'A' < example.txt            #> Translate from the file all 'a' into capital 'A'
+$ tr 'a' 'A' < file.txt > newfile.txt   #> Redirect into another file
+
+        SORT
+$ sort file.twt                      #> simple sort
+$ sort -t: -k3 file.txt              #> sort separated fields with ':' and sort the 3rd field (k3)
+$ sort -t, -k2 -k1n -k3 file.txt     #> sort separated fields with ',', sort the 2nd field, then 1st field numerically, then 3rd field
+
+        WORD COUNT
+$> wc file.txt -lwc                  #> count the number of lines, words, and caracters (-lwc)
