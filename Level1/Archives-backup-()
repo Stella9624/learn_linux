@@ -1,0 +1,8 @@
+    INSTALLING TAR
+    
+    
+    COMPRESSING DOCUMENTS FOR BACKUPS
+$ tar -czf fileCompr.tgz *    #> Create and zip in file (-czf) fileCompr.tgz everything (*) 
+
+    DECOMPRESSING DOCUMENTS
+$ tar -xzf fileCompr.tgz      #> Extract and unzip the file fileCompr.tgz
