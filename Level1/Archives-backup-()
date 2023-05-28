@@ -2,7 +2,12 @@
     
     
     COMPRESSING DOCUMENTS FOR BACKUPS
-$ tar -czf fileCompr.tgz *    #> Create and zip in file (-czf) fileCompr.tgz everything (*) 
+$ tar -czf fileCompr.tgz *      #> Create and zip in file (-czf) fileCompr.tgz everything (*) 
+$ zip -r School.zip School      #> Compress with zip file, but > than tar -czf 
+
+$ gzip -l alpha_files.tgz       #> View the compressing detail
+$ tar -tf folders.tgz           #> View the content of the file 
 
     DECOMPRESSING DOCUMENTS
-$ tar -xzf fileCompr.tgz      #> Extract and unzip the file fileCompr.tgz
+$ tar -xzf fileCompr.tgz        #> Extract and unzip the file fileCompr.tgz
+$ unzip -l School.zip           #> Unzip and list its content
