@@ -1,0 +1,25 @@
+# su                            #> substitute user (super user) => switch to root
+# su -                          #> let root access to all cmd
+$ su user1                      #> swith to user1 => if root, no passwd
+$ sudo command1                 #> superuser do a cmd for users in sudo group
+$ whoami                        #> know the logged user
+$ id                            #> know the user id
+$ exit                          #> to log out
+$ sudoedit file1                #> edit file1 as sudoer
+$ pkexec --user user1 whoami    #> run a cmd as user1
+
+      GIVE POWER TO OTHER USERS
+$ sudo visudo                             #> see or edit the /etc/sudoers file to avoid danger
+## Add these into /etc/sudoers file
+%group1 ALL=(ALL) ALL                     #> give group1 all sudo powers
+user1 ALL=(ALL) ALL                       #> give user1 all sudo powers
+user2 ALL=(ALL) /user/bin/apt update, /user/bin/apt upgrade       #> give user2 sudo powers only with commands apt update and apt upgrade
+
+      USERS
+# useradd user1 -c "User1 FullName" -s /bin/sh                    #> Create user1 with fullname, loggin as bash shell,
+                -d /home/user1 -m                                 #> Specify then create the home directory
+                -e 2023/12/31                                     #> (optional) for expiration date
+# passwd user1                            #> Create password for user1
+# usermod -l user1 user2                  #> modify user1 to user2 with lower case for the logging name
+# usermod -L user1                        #> Lock user1 not to log in
+# userdel user1                           #> Delete user1 with its home directory
