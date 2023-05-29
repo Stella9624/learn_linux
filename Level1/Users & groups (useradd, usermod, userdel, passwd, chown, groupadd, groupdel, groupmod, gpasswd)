@@ -1,0 +1,66 @@
+# su                                      #> substitute user (super user) => switch to root
+# su -                                    #> let root access to all cmd
+$ su user1                                #> swith to user1 => if root, no passwd
+$ sudo command1                           #> superuser do a cmd for users in sudo group
+$ whoami                                  #> know the logged user
+$ who                                     #> list all current logged users
+$ id                                      #> know the user id
+$ exit                                    #> to log out
+$ sudoedit file1                          #> edit file1 as sudoer
+$ pkexec --user user1 whoami              #> run a cmd as user1
+
+            GIVE POWER TO OTHER USERS
+$ sudo visudo                             #> see or edit the /etc/sudoers file to avoid danger
+## Add these into /etc/sudoers file
+%group1 ALL=(ALL) ALL                     #> give group1 all sudo powers
+user1 ALL=(ALL) ALL                       #> give user1 all sudo powers
+user2 ALL=(ALL) /user/bin/apt update, /user/bin/apt upgrade       #> give user2 sudo powers only with commands apt update and apt upgrade
+
+     - CREATING USERS
+# useradd user1 -c "User1 FullName" -s /bin/sh                    #> Create user1 with fullname, loggin as bash shell,
+                -d /home/user1 -m                                 #> Specify then create the home directory
+                -e 2023/12/31                                     #> (optional) for expiration date
+# adduser user1                           #> Another way to create user but it is not a command but a script / useradd is better
+
+     - USER PASSWORD
+# passwd user1                            #> Create or modify password for user1
+$ passwd                                  #> let current user modify his/her passwd
+# chage -l user1                          #> View user password details 
+# chage -M 90 user1                       #> User1 password expires in 90 days
+# sudoedit /etc/login.defs                #> Edit the default password file for all users, see example below
+                  PASS_MAX_DAYS 90                                #> Make all users passwords expire every 90 days as default
+                  PASS_WARN_AGE 7                                 #> Warn them 7 days before password expiration
+                  LOGIN_RETRIES 5                                 #> After 5 incorrect passwords, lock the user
+# sudoedit /etc/security/faillock.conf                            #> Another way to edit default password
+                  deny 3                                          #> Lock user after 3 incorrect passwords
+                  unlock_time = 3600                              #> Unlock the user after 360s (1hour) of incorrect attempts
+# sudoedit /etc/pam.d/config                                      #> Edit pam file to make it use the faillock
+                  auth [default=die] pam_faillock.so authfail     #> If failed loggin => session die and call the faillock
+                  account required pam_faillock.so                #> No session unless clear on faillock
+           
+     - USER MODIFICATION
+# usermod -l user1 user2                  #> modify user1 to user2 with lower case for the logging name
+# usermod -L user1                        #> Lock user1 not to log in
+# userdel user1                           #> Delete user1 and keep its home directory
+# userdel -r user1                        #> Delete user1 with its home directory
+# chsh -s /user/sbin/nologin user         #> Make the user no login
+# mkdir /home/user1                       #> If the homedir doesn't appear
+# chown user1:user1 /home/user1           #> Change the owner as user1 and group user1
+# cat /etc/passwd                         #> See all users
+# cat /etc/shadow                         #> See all users with passwords
+# getent passwd user1                     #> find if user1 is in passwd file
+# grep user1 /etc/passwd                  #> same as above
+
+      - MANAGING GROUPS
+# groupadd group1
+# groupadd -g 1005 group1                 #> Create group with its group id
+# groupadd -r group1                      #> Create and assign a lower id
+# groupmod -n clerks sales                #> Change groupmame
+# groupmod -g 10003 clerks                #> Change groupID
+# groupdel group1                         #> delete group
+# cat /etc/group                          #> View all groups
+# getent group group1                     #> find if group1 is in group file
+# find / -nogroup                         #> find files with no group
+# gpasswd -a user1 group1                 #> Add user1 to group1
+# gpasswd -d user1 group1                 #> Deleting user1 from group1
+
