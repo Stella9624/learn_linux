@@ -24,13 +24,14 @@ user2 ALL=(ALL) /user/bin/apt update, /user/bin/apt upgrade       #> give user2 
 
      - CREATING USERS
 # useradd user1 -c "User1 FullName" -s /bin/sh                    #> Create user1 with fullname, loggin as bash shell,
-                -d /home/user1 -m                                 #> Specify then create the home directory
+                -md /home/user1                                   #> Specify then create the home directory
+                -mk /anotherdir                                   #> contents of anotherdir is used to populate new user's home directory 
+                -mb /anotherdir                                   #> specify another base dir under which user's homedirectory is created      
                 -e 2023/12/31                                     #> (optional) for expiration date
                 -f 30                                             #> specify inactive value
                 -u 1000                                           #> specify user ID
                 -g group1 user1                                   #> specify primary group
-                -G group2, group3 user1                           #> specify supplemetary group      
-                -k /anotherdir                                    #> contents of anotherdir is used to populate new user's home directory      
+                -G group2, group3 user1                           #> specify supplemetary group           
 # adduser user1                           #> Another way to create user but it is not a command but a script / useradd is better
 # useradd -D                              #> View default values and change them in /etc/default/useradd  
 
