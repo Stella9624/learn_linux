@@ -30,6 +30,7 @@ user2 ALL=(ALL) /user/bin/apt update, /user/bin/apt upgrade       #> give user2 
                 -u 1000                                           #> specify user ID
                 -g group1 user1                                   #> specify primary group
                 -G group2, group3 user1                           #> specify supplemetary group      
+                -k /anotherdir                                    #> contents of anotherdir is used to populate new user's home directory      
 # adduser user1                           #> Another way to create user but it is not a command but a script / useradd is better
 # useradd -D                              #> View default values and change them in /etc/default/useradd  
 
@@ -53,8 +54,9 @@ $ passwd                                  #> let current user modify his/her pas
      - USER MODIFICATION
 # usermod -l user1 user2                  #> modify user1 to user2 with lower case for the logging name
 # usermod -L user1                        #> Lock user1 not to log in
+# usermod -aG group1 user1                #> Add user1 to group1      
 # userdel user1                           #> Delete user1 and keep its home directory
-# userdel -r user1                        #> Delete user1 with its home directory
+# userdel -r user1                        #> Delete user1 with its home directory and mail spool
 # chsh -s /user/sbin/nologin user         #> Make the user no login
 # mkdir /home/user1                       #> If the homedir doesn't appear
 # chown user1:user1 /home/user1           #> Change the owner as user1 and group user1
