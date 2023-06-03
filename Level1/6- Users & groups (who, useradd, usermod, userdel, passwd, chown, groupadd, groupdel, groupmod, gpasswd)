@@ -64,6 +64,7 @@ $ passwd                                  #> let current user modify his/her pas
 # cat /etc/passwd                         #> See all users
 # cat /etc/shadow                         #> See all users with passwords
 # getent passwd user1                     #> find if user1 is in passwd file
+# getent shadow user1                     #> find if user1 is in shadow file
 # grep user1 /etc/passwd                  #> same as above
 
 
@@ -79,4 +80,7 @@ $ passwd                                  #> let current user modify his/her pas
 # find / -nogroup                         #> find files with no group
 # gpasswd -a user1 group1                 #> Add user1 to group1
 # gpasswd -d user1 group1                 #> Deleting user1 from group1
-
+# gpasswd -A user1 group1                 #> Make user1 become administrator of group1      
+$ newgrp group1                           #> Switch to group1, then new created files or dir belong to group1
+$ groups                                  #> all groups which user belong to      
+$ groups user2                            #> see all groups of user2      
