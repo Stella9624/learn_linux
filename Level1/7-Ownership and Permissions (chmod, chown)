@@ -14,19 +14,30 @@ drwxrwxr-x 2 stella stella   4096 Dec 11  2022 'VBox Shared'      #> d: director
 -rw-r--r-- 1 stella stella 234398 Feb 28 12:33  mommy.pdf         #> -: file, rw- for u, r-- for g, r-- for o
 
     ## Change permission
-$ chmod 410 file.txt                #> change file permission to r=4 for u, x=1 for o, none=0 for o.               
-$ chmod +r file.txt                 #> add read permission for everyone 
-$ chmod u=rwx,g=rx,o=r file.txt     #> assign permission one by one
-$ chmod g-w file.txt                #> delete write permission for group
+$ chmod 410 file.txt                    #> change file permission to r=4 for u, x=1 for o, none=0 for o.               
+$ chmod +r file.txt                     #> add read permission for everyone 
+$ chmod u=rwx,g=rx,o=r file.txt         #> assign permission one by one
+$ chmod g-w file.txt                    #> delete write permission for group
+$ chmod o+t dir1/                       #> Make other's permission=t or stichy (all users are unallowed to delete/modify created files by other users)
 
     ## Change file owner
-# chown user1 file.txt              #> user1 becomes owner of file.txt 
-# chgrp group1 file.txt             #> group1 becomes owner of file.txt 
-# chown user1:group1 file.txt       #> combine the two
-# chown :group1 file.txt            #> another way to change group owner
+# chown user1 file.txt                  #> user1 becomes owner of file.txt 
+# chgrp group1 file.txt                 #> group1 becomes owner of file.txt 
+# chown user1:group1 file.txt           #> combine the two
+# chown :group1 file.txt                #> another way to change group owner
 
     ## Change directory owner
-# chown -R user1:group1 dir1        #> Recursive change for all directories inside dir1
+# chown -R user1:group1 dir1            #> Recursive change for all directories inside dir1
 
     ## Default values inside ~/.profile
 ## change umask values, it is the inverse: 0=rwx, 7=none.
+
+    ## FACL (File Access Control List)
+# tune2fs -l /dev/yourSDA               #> To list details, then see if 'Default mount options' is 'user xattr acl' => FACL is enabled
+# apt install acl                       #> Install ACL
+# getfacl file1.txt                     #> Show the ACL of file1.txt
+# setfacl -m u:user1:rw file1.txt       #> Modify the file's ACL: add user1 as a permitted user with rw for file1.txt  
+# setfacl -x u:user1 file1.txt          #> Remove user1 from user permission
+# setfacl -m g:group1:rw file1.txt      #> Modify the file's ACL: add group1 as a permitted group with rw for file1.txt  
+# setfacl -x g:group1 file1.txt         #> Remove group1 from groups permission
+# setfacl -m d:u:user1:rw dir1/         #> Modify directory's ACL: add user1 perm => Only works for newly created things inside dir1/
