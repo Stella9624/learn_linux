@@ -32,7 +32,7 @@ $ chmod o+t dir1/                       #> Make other's permission=t or stichy (
     ## Default values inside ~/.profile
 ## change umask values, it is the inverse: 0=rwx, 7=none.
 
-    ## FACL (File Access Control List)
+    ## FACL (File Access Control List): ADVANCED FILE PERMISSIONS
 # tune2fs -l /dev/yourSDA               #> To list details, then see if 'Default mount options' is 'user xattr acl' => FACL is enabled
 # apt install acl                       #> Install ACL
 # getfacl file1.txt                     #> Show the ACL of file1.txt
