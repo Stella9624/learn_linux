@@ -1,0 +1,12 @@
+$ localectl						                    #> display the system language 
+$ locale currency_symbol				          #> display the currency symbol (ex: US=$)
+$ locale -a 						                  #> List all locale languages 
+$ localectl list-locales					        #> Same as “locale -a” 
+$ localectl set-locale LANG=fr_FR.utf8		#> Modify the system language and the currency into french, need to reboot to take effect
+
+$ date							                      #> display the system date and time
+$ timedatectl						                  #> View the time and date details
+$ timedatectl list-timezones				      #> List all time zones
+$ timedatectl set-timezone Europe/Paris		#> Set time zone to Europe/Paris as in list above
+$ timedatectl timesync-status				      #> Display the time server
+$ timedatectl show-timesync –all			    #> Display all the time server details
