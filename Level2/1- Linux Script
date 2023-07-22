@@ -1,0 +1,11 @@
+$ vim example.sh                # Create the script file
+$ nano example.sh               # Same as above
+
+      => Once inside the file add 
+#!/bin/bash
+All my scrits
+
+      => Exit and give execute permission
+$ ls -l example.sh
+$ chmod +u example.sh
+$ ./example.sh                  # Executing script
