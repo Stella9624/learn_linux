@@ -1,0 +1,14 @@
+$ ps aux                        # show all processes
+$ top                           # show all most consuming processes (sorted by CPU consum)
+
+$ ps aux | grep vlc             # know number of the process
+# kill -9 3222                  # kill process number 3222 
+# kill -15 3222                 # Terminate process number 3222 
+# nice -10 vlc                  # "nice" for how important is an app (the bigger it is, the least important)
+# renice -13 vlc -u user1       # modify nice value for 13, vlc which belongs to the user1
+
+$ free -h                       # show available memory human readable
+$ df -h                         # show disk storage consumption
+$ du -sh /dir1                  # show the size of /dir1, with all of its subfolders "-s"
+$ du -h --max-depth=1 /home/dir1/    # show size of 1st folder inside /home/dir1
+
