@@ -1,0 +1,34 @@
+	LINUX STORAGE
+$ lsblk						# list block devices (total disk and cd rom)
+# lsblk -o name,mountpoint,size,uuid	  	# list the name, mountpoint,size, and universal ID
+# e2label /dev/sda1 label1			# Set the label of sda1 as label1
+$ cat /etc/fstab				# see the file system table
+
+BACKUPS
+RAID 1 – Mirroring
+- Any written data to Disk 1 is mirrored over to Disk 2
+- If loosing Disk 1, everything is in Disk 2
+
+RAID 0 – Striping
+- Break the data and spread in over Disk 1 and 2
+- If loosing Disk 1 or 2, will loose the data
+
+	CREATE PARTITIONS AND VOLUMES
+Hard drives were usually diced up into partitions: Take one hard drive and divide it into multiple virtual hard drives
+	Types of partition managements:
+- Master Boot Record (MBR): Record where those partitions are : 
+  --  Up to 4 partitions (including SWAP, Boot file, and Rest of the hard drives)
+  -- No large hard drive supported
+  -- Used by old linux on embaded systems (Web cameras, routers, ...)
+- Guid (Globally unique Identifier) Partition Table (GPT):  
+  -- Identify partitions
+  -- Up to 128 partitions
+  -- Most recent linux use GPT
+
+Command:
+- MBR: 
+# fdisk -l /dev/sdb		# list the partition on sdb
+Last sector: how big do you want the partition to be?
+w: to save it
+
+
